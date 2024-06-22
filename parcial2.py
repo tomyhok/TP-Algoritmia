@@ -24,7 +24,7 @@ def ordenarLista(lista1,lista2,lista3,lista4,lista5):
 
     matrizCostos = [listaA,listaB,listaC,listaD,listaE]
 
-    for i in range(len(matrizResumenes)-1):
+    for i in range(len(matrizResumenes)):
         matrizCostos[i][0]=matrizResumenes[i][3]
         matrizCostos[i][1]=matrizResumenes[i][1]
     
@@ -60,25 +60,29 @@ def resumenVentas(cocinaM1,cocinaM2,cocinaM3,heladeraM1,heladeraM2,heladeraM3,ai
     costos_cocinaM1 = cocinaM1*costoCocina[0]
     costos_cocinaM2 = cocinaM2*costoCocina[1]
     costos_cocinaM3 = cocinaM3*costoCocina[2]
+
     costos_heladeraM1 = heladeraM1*costoHeladera[0] 
     costos_heladeraM2 = heladeraM2*costoHeladera[1]
     costos_heladeraM3 = heladeraM3*costoHeladera[2]
+
     costos_aireM1 = aireM1*costoAire[0]
     costos_aireM2 = aireM2*costoAire[1]
     costos_aireM3 = aireM3*costoAire[2]
+
     costos_lavarropasM1 = lavarropasM1*costoLavarropas[0]
-    costos_lavarropasM2 = lavarropasM1*costoLavarropas[1]
-    costos_lavarropasM3 = lavarropasM1*costoLavarropas[2]
+    costos_lavarropasM2 = lavarropasM2*costoLavarropas[1]
+    costos_lavarropasM3 = lavarropasM3*costoLavarropas[2]
+
     costos_microondasM1 = microondasM1*costoMicroondas[0]
-    costos_microondasM2 = microondasM1*costoMicroondas[1]
-    costos_microondasM3 = microondasM1*costoMicroondas[2]
+    costos_microondasM2 = microondasM2*costoMicroondas[1]
+    costos_microondasM3 = microondasM3*costoMicroondas[2]
 
     costosTotales = costos_cocinaM1 + costos_cocinaM2 + costos_cocinaM3 + costos_heladeraM1 + costos_heladeraM2 + costos_heladeraM3 + costos_aireM1 + costos_aireM2 + costos_aireM3 + costos_lavarropasM1 + costos_lavarropasM2 + costos_lavarropasM3 + costos_microondasM1 + costos_microondasM2 + costos_microondasM3 + almacenamientoTotal
 
     # Facturación total del mes:
     facturacion = ventasTotales-costosTotales
 
-    print(f"\nFacturación total del mes: ${facturacion}\nTotal de unidades vendidas: {unidadesTotal}\nCostos totales: {costosTotales}\n")
+    print(f"\nFacturación total del mes: ${facturacion}\nTotal de unidades vendidas: {unidadesTotal}\nCostos totales: ${costosTotales}\n")
 
 
 #Funcion2 -> facturacion por producto
@@ -157,32 +161,256 @@ def facturacionTipoProducto(cocinaM1,cocinaM2,cocinaM3,heladeraM1,heladeraM2,hel
     facturacionMicroondas = ventasMicroondas-costosMicroondas
 
     # Armamos una lista para cada tipo de producto, que contenga la facturación, costos totales y la cantidad de unidades vendidas.
-    resumenCocinas = [facturacionCocinas,costosCocinas,unidadesCocina,"Cocinas:"]
-    resumenHeladeras = [facturacionHeladeras,costosHeladeras,unidadesHeladera,"Heladeras:"]
-    resumenAires = [facturacionAires,costosAires,unidadesAire,"Aires acondicionados:"]
-    resumenLavarropas = [facturacionLavarropas,costosLavarropas,unidadesLavarropas,"lavarropas"]
-    resumenMicroondas = [facturacionMicroondas,costosMicroondas,unidadesMicroondas,"microondas"]
+    resumenCocinas = [facturacionCocinas,costosCocinas,unidadesCocina,"Cocinas: $"]
+    resumenHeladeras = [facturacionHeladeras,costosHeladeras,unidadesHeladera,"Heladeras: $"]
+    resumenAires = [facturacionAires,costosAires,unidadesAire,"Aires acondicionados: $"]
+    resumenLavarropas = [facturacionLavarropas,costosLavarropas,unidadesLavarropas,"Lavarropas: $"]
+    resumenMicroondas = [facturacionMicroondas,costosMicroondas,unidadesMicroondas,"Microondas: $"]
 
     costosOrdenados=ordenarLista(resumenCocinas,resumenHeladeras,resumenAires,resumenLavarropas,resumenMicroondas)
 
-    print(f"Costos ordenados por facturación:\n{costosOrdenados[0][0]}{costosOrdenados[0][1]}") 
-    """
-    ADIJAEDLSEFGKLAHGFIUAHGKAJRAWLERWELF
-    LKFHAERHURHSEKJFNAKLJFKFBKEBF
-    
-    """
+    print(f"\nTotal de Facturación:\nCocinas: ${facturacionCocinas}\nUnidades: {unidadesCocina}\n\nHeladeras: ${facturacionHeladeras}\nUnidades: {unidadesHeladera}\n\nAires Acondicionados: ${facturacionAires}\nUnidades: {unidadesAire}\n\nLavarropas: ${facturacionLavarropas}\nUnidades: {unidadesLavarropas}\n\nMicroondas: ${facturacionMicroondas}\nUnidades: {unidadesMicroondas}")
+    print(f"\nCostos ordenados por facturación:\n\n{costosOrdenados[0][0]}{costosOrdenados[0][1]}\n{costosOrdenados[1][0]}{costosOrdenados[1][1]}\n{costosOrdenados[2][0]}{costosOrdenados[2][1]}\n{costosOrdenados[3][0]}{costosOrdenados[3][1]}\n{costosOrdenados[4][0]}{costosOrdenados[4][1]}\n") 
+
 
 #Funcion3
 """
 - listado completo detallado del total de cada producto y cada modelo con su cantidad y total facturado (ordenado por total facturado)
 """
+def listadoFacturacion(cocinaM1,cocinaM2,cocinaM3,heladeraM1,heladeraM2,heladeraM3,aireM1,aireM2,aireM3,lavarropasM1,lavarropasM2,lavarropasM3,microondasM1,microondasM2,microondasM3,precioCocina,precioHeladera,precioAire,precioLavarropas,precioMicroondas,costoCocina,costoHeladera,costoAire,costoLavarropas,costoMicroondas):
+    # Calculamos las ventas por producto
+    total_cocinaM1 = cocinaM1*precioCocina[0]
+    total_cocinaM2 = cocinaM2*precioCocina[1]
+    total_cocinaM3 = cocinaM3*precioCocina[2]
+
+    ventasCocina = total_cocinaM1+total_cocinaM2+total_cocinaM3
+
+    total_heladeraM1 = heladeraM1*precioHeladera[0]
+    total_heladeraM2 = heladeraM2*precioHeladera[1]
+    total_heladeraM3 = heladeraM3*precioHeladera[2]
+
+    ventasHeladera = total_heladeraM1+total_heladeraM2+total_heladeraM3
+
+    total_aireM1 = aireM1*precioAire[0]
+    total_aireM2 = aireM2*precioAire[1]
+    total_aireM3 = aireM3*precioAire[2]
+
+    ventasAire = total_aireM1+total_aireM2+total_aireM3
+
+    total_lavarropasM1 = lavarropasM1*precioLavarropas[0]
+    total_lavarropasM2 = lavarropasM2*precioLavarropas[1]
+    total_lavarropasM3 = lavarropasM3*precioLavarropas[2]
+
+    ventasLavarropas = total_lavarropasM1+total_lavarropasM2+total_lavarropasM3
+
+    total_microondasM1 = microondasM1*precioMicroondas[0]
+    total_microondasM2 = microondasM2*precioMicroondas[1]
+    total_microondasM3 = microondasM3*precioMicroondas[2]
+
+    ventasMicroondas = total_microondasM1+total_microondasM2+total_microondasM3
+
+    # Calculamos los costos por producto
+    costos_cocinaM1 = cocinaM1*costoCocina[0]
+    costos_cocinaM2 = cocinaM2*costoCocina[1]
+    costos_cocinaM3 = cocinaM3*costoCocina[2]
+
+    costosCocinas = costos_cocinaM1 + costos_cocinaM2 + costos_cocinaM3
+
+    costos_heladeraM1 = heladeraM1*costoHeladera[0] 
+    costos_heladeraM2 = heladeraM2*costoHeladera[1]
+    costos_heladeraM3 = heladeraM3*costoHeladera[2]
+
+    costosHeladeras = costos_heladeraM1 + costos_heladeraM2 + costos_heladeraM3
+
+    costos_aireM1 = aireM1*costoAire[0]
+    costos_aireM2 = aireM2*costoAire[1]
+    costos_aireM3 = aireM3*costoAire[2]
+
+    costosAires = costos_aireM1 + costos_aireM2 + costos_aireM3
+
+    costos_lavarropasM1 = lavarropasM1*costoLavarropas[0]
+    costos_lavarropasM2 = lavarropasM2*costoLavarropas[1]
+    costos_lavarropasM3 = lavarropasM3*costoLavarropas[2]
+
+    costosLavarropas = costos_lavarropasM1 + costos_lavarropasM2 + costos_lavarropasM3
+
+    costos_microondasM1 = microondasM1*costoMicroondas[0]
+    costos_microondasM2 = microondasM2*costoMicroondas[1]
+    costos_microondasM3 = microondasM3*costoMicroondas[2]
+
+    costosMicroondas = costos_microondasM1 + costos_microondasM2 + costos_microondasM3
+
+    # Calculamos la facturación por tipo de producto
+    facturacionCocinas = ventasCocina-costosCocinas
+    facturacionHeladeras = ventasHeladera-costosHeladeras
+    facturacionAires = ventasAire-costosAires
+    facturacionLavarropas = ventasLavarropas-costosLavarropas
+    facturacionMicroondas = ventasMicroondas-costosMicroondas
+
+
+    # Calculamos la facturación por modelo
+    facturacionCocinasM1 = total_cocinaM1-costos_cocinaM1
+    facturacionCocinasM2 = total_cocinaM2-costos_cocinaM2
+    facturacionCocinasM3 = total_cocinaM3-costos_cocinaM3
+
+    facturacionHeladerasM1 = total_heladeraM1-costos_heladeraM1
+    facturacionHeladerasM2 = total_heladeraM2-costos_heladeraM2
+    facturacionHeladerasM3 = total_heladeraM3-costos_heladeraM3
+
+    facturacionAiresM1 = total_aireM1-costos_aireM1
+    facturacionAiresM2 = total_aireM2-costos_aireM2
+    facturacionAiresM3 = total_aireM3-costos_aireM3
+
+    facturacionLavarropasM1 = total_lavarropasM1-costos_lavarropasM1
+    facturacionLavarropasM2 = total_lavarropasM2-costos_lavarropasM2
+    facturacionLavarropasM3 = total_lavarropasM3-costos_lavarropasM3
+
+    facturacionMicroondasM1 = total_microondasM1-costos_microondasM1
+    facturacionMicroondasM2 = total_microondasM2-costos_microondasM2
+    facturacionMicroondasM3 = total_microondasM3-costos_microondasM3
+
+    # Armamos una lista para cada modelo, que contenga la facturación y el modelo
+
+    listaVacia = [0,0,0,0]
+
+    cocinasOrdenadasM1 = [facturacionCocinasM1,facturacionCocinasM1,0,"Modelo 1: $"]
+    cocinasOrdenadasM2 = [facturacionCocinasM2,facturacionCocinasM2,0,"Modelo 2: $"]
+    cocinasOrdenadasM3 = [facturacionCocinasM3,facturacionCocinasM3,0,"Modelo 3: $"]
+
+    cocinasOrdenadas = ordenarLista(cocinasOrdenadasM1,cocinasOrdenadasM2,cocinasOrdenadasM3,listaVacia,listaVacia)
+
+    heladerasOrdenadasM1 = [facturacionHeladerasM1,facturacionHeladerasM1,0,"Modelo1: $"]
+    heladerasOrdenadasM2 = [facturacionHeladerasM2,facturacionHeladerasM2,0,"Modelo2: $"]
+    heladerasOrdenadasM3 = [facturacionHeladerasM3,facturacionHeladerasM3,0,"Modelo3: $"]
+
+    heladerasOrdenadas = ordenarLista(heladerasOrdenadasM1,heladerasOrdenadasM2,heladerasOrdenadasM3,listaVacia,listaVacia)
+    
+    airesOrdenadosM1 = [facturacionAiresM1,facturacionAiresM1,0,"Modelo 1: $"]
+    airesOrdenadosM2 = [facturacionAiresM2,facturacionAiresM2,0,"Modelo 2: $"]
+    airesOrdenadosM3 = [facturacionAiresM3,facturacionAiresM3,0,"Modelo 3: $"]
+
+    airesOrdenados = ordenarLista(airesOrdenadosM1,airesOrdenadosM2,airesOrdenadosM3,listaVacia,listaVacia)
+
+    lavarropasOrdenadosM1 = [facturacionLavarropasM1,facturacionLavarropasM1,0,"Modelo 1: $"]
+    lavarropasOrdenadosM2 = [facturacionLavarropasM2,facturacionLavarropasM2,0,"Modelo 2: $"]
+    lavarropasOrdenadosM3 = [facturacionLavarropasM3,facturacionLavarropasM3,0,"Modelo 3: $"]
+
+    lavarropasOrdenados = ordenarLista(lavarropasOrdenadosM1,lavarropasOrdenadosM2,lavarropasOrdenadosM3,listaVacia,listaVacia)
+
+    microondasOrdenadosM1 = [facturacionMicroondasM1,facturacionMicroondasM1,0,"Modelo 1: $"]
+    microondasOrdenadosM2 = [facturacionMicroondasM2,facturacionMicroondasM2,0,"Modelo 2: $"]
+    microondasOrdenadosM3 = [facturacionMicroondasM3,facturacionMicroondasM3,0,"Modelo 3: $"]
+
+    microondasOrdenados = ordenarLista(microondasOrdenadosM1,microondasOrdenadosM2,microondasOrdenadosM3,listaVacia,listaVacia)
+
+    print(f"\nListado Completo de Facturación:\n\nCocinas: ${facturacionCocinas}\n\n{cocinasOrdenadas[0][0]}{cocinasOrdenadas[0][1]}\nUnidades Vendidas: {cocinaM1}\n\n{cocinasOrdenadas[1][0]}{cocinasOrdenadas[1][1]}\nUnidades Vendidas: {cocinaM2}\n\n{cocinasOrdenadas[2][0]}{cocinasOrdenadas[2][1]}\nUnidades Vendidas: {cocinaM3}\n\nHeladeras: {facturacionHeladeras}\n\n{heladerasOrdenadas[0][0]}{heladerasOrdenadas[0][1]}\nUnidades Vendidas: {heladeraM1}\n\n{heladerasOrdenadas[1][0]}{heladerasOrdenadas[1][1]}\nUnidades Vendidas: {heladeraM2}\n\n{heladerasOrdenadas[2][0]}{heladerasOrdenadas[2][1]}\nUnidades Vendidas: {heladeraM3}\n\nAires Acondicionados: ${facturacionAires}\n\n{airesOrdenados[0][0]}{airesOrdenados[0][1]}\nUnidades Vendidas: {aireM1}\n\n{airesOrdenados[1][0]}{airesOrdenados[1][1]}\nUnidades Vendidas: {aireM2}\n\n{airesOrdenados[2][0]}{airesOrdenados[2][1]}\nUnidades Vendidas: {aireM3}\n\nLavarropas: ${facturacionLavarropas}\n\n{lavarropasOrdenados[0][0]}{lavarropasOrdenados[0][1]}\nUnidades Vendidas: {lavarropasM1}\n\n{lavarropasOrdenados[1][0]}{lavarropasOrdenados[1][1]}\nUnidades Vendidas: {lavarropasM2}\n\n{lavarropasOrdenados[2][0]}{lavarropasOrdenados[2][1]}\nUnidades Vendidas: {lavarropasM3}\n\nMicroondas: ${facturacionMicroondas}\n\n{microondasOrdenados[0][0]}{microondasOrdenados[0][1]}\nUnidades Vendidas: {microondasM1}\n\n{microondasOrdenados[1][0]}{microondasOrdenados[1][1]}\nUnidades Vendidas: {microondasM2}\n\n{microondasOrdenados[2][0]}{microondasOrdenados[2][1]}\nUnidades Vendidas: {microondasM3}\n")
 
 #Funcion4
 """
 - poder seleccionar un tipo de producto y que se detallen la facturación de cada uno de los modelos de ese tipo.
 """
+def elegirModeloFacturacion(producto,modelo,cocinaM1,cocinaM2,cocinaM3,heladeraM1,heladeraM2,heladeraM3,aireM1,aireM2,aireM3,lavarropasM1,lavarropasM2,lavarropasM3,microondasM1,microondasM2,microondasM3,precioCocina,precioHeladera,precioAire,precioLavarropas,precioMicroondas,costoCocina,costoHeladera,costoAire,costoLavarropas,costoMicroondas):
+    total_cocinaM1 = cocinaM1*precioCocina[0]
+    total_cocinaM2 = cocinaM2*precioCocina[1]
+    total_cocinaM3 = cocinaM3*precioCocina[2]
+
+    total_heladeraM1 = heladeraM1*precioHeladera[0]
+    total_heladeraM2 = heladeraM2*precioHeladera[1]
+    total_heladeraM3 = heladeraM3*precioHeladera[2]
+
+    total_aireM1 = aireM1*precioAire[0]
+    total_aireM2 = aireM2*precioAire[1]
+    total_aireM3 = aireM3*precioAire[2]
+
+    total_lavarropasM1 = lavarropasM1*precioLavarropas[0]
+    total_lavarropasM2 = lavarropasM2*precioLavarropas[1]
+    total_lavarropasM3 = lavarropasM3*precioLavarropas[2]
+
+    total_microondasM1 = microondasM1*precioMicroondas[0]
+    total_microondasM2 = microondasM2*precioMicroondas[1]
+    total_microondasM3 = microondasM3*precioMicroondas[2]
+
+    # Calculamos los costos por producto
+    costos_cocinaM1 = cocinaM1*costoCocina[0]
+    costos_cocinaM2 = cocinaM2*costoCocina[1]
+    costos_cocinaM3 = cocinaM3*costoCocina[2]
+
+    costos_heladeraM1 = heladeraM1*costoHeladera[0] 
+    costos_heladeraM2 = heladeraM2*costoHeladera[1]
+    costos_heladeraM3 = heladeraM3*costoHeladera[2]
+
+    costos_aireM1 = aireM1*costoAire[0]
+    costos_aireM2 = aireM2*costoAire[1]
+    costos_aireM3 = aireM3*costoAire[2]
+
+    costos_lavarropasM1 = lavarropasM1*costoLavarropas[0]
+    costos_lavarropasM2 = lavarropasM2*costoLavarropas[1]
+    costos_lavarropasM3 = lavarropasM3*costoLavarropas[2]
+
+    costos_microondasM1 = microondasM1*costoMicroondas[0]
+    costos_microondasM2 = microondasM2*costoMicroondas[1]
+    costos_microondasM3 = microondasM3*costoMicroondas[2]
+
+    # Calculamos la facturación por modelo
+    facturacionCocinasM1 = total_cocinaM1-costos_cocinaM1
+    facturacionCocinasM2 = total_cocinaM2-costos_cocinaM2
+    facturacionCocinasM3 = total_cocinaM3-costos_cocinaM3
+
+    facturacionHeladerasM1 = total_heladeraM1-costos_heladeraM1
+    facturacionHeladerasM2 = total_heladeraM2-costos_heladeraM2
+    facturacionHeladerasM3 = total_heladeraM3-costos_heladeraM3
+
+    facturacionAiresM1 = total_aireM1-costos_aireM1
+    facturacionAiresM2 = total_aireM2-costos_aireM2
+    facturacionAiresM3 = total_aireM3-costos_aireM3
+
+    facturacionLavarropasM1 = total_lavarropasM1-costos_lavarropasM1
+    facturacionLavarropasM2 = total_lavarropasM2-costos_lavarropasM2
+    facturacionLavarropasM3 = total_lavarropasM3-costos_lavarropasM3
+
+    facturacionMicroondasM1 = total_microondasM1-costos_microondasM1
+    facturacionMicroondasM2 = total_microondasM2-costos_microondasM2
+    facturacionMicroondasM3 = total_microondasM3-costos_microondasM3
+    
+    if producto == 1:
+        if modelo == 1:
+            print(f"\nFacturación: ${facturacionCocinasM1}\n")
+        elif modelo == 2:
+            print(f"\nFacturación: ${facturacionCocinasM2}\n")
+        else:
+            print(f"\nFacturación: ${facturacionCocinasM3}\n")
+    elif producto == 2:
+        if modelo == 1:
+            print(f"\nFacturación: ${facturacionHeladerasM1}\n")
+        elif modelo == 2:
+            print(f"\nFacturación: ${facturacionHeladerasM2}\n")
+        else:
+            print(f"\nFacturación: ${facturacionHeladerasM3}\n")
+    elif producto == 3:
+        if modelo == 1:
+            print(f"\nFacturación: ${facturacionAiresM1}\n")
+        elif modelo == 2:
+            print(f"\nFacturación: ${facturacionAiresM2}\n")
+        else:
+            print(f"\nFacturación: ${facturacionAiresM3}\n")
+    elif producto == 4:
+        if modelo == 1:
+            print(f"\nFacturación: ${facturacionLavarropasM1}\n")
+        elif modelo == 2:
+            print(f"\nFacturación: ${facturacionLavarropasM2}\n")
+        else:
+            print(f"\nFacturación: ${facturacionLavarropasM3}\n")
+    else:
+        if modelo == 1:
+            print(f"\nFacturación: ${facturacionMicroondasM1}\n")
+        elif modelo == 2:
+            print(f"\nFacturación: ${facturacionMicroondasM2}\n")
+        else:
+            print(f"\nFacturación: ${facturacionMicroondasM3}\n")
 
 import random
+
+#PROGRAMA PRINCIPAL
 
 # Variables que representan el stock de cada tipo de producto.
 stock_cocina = random.randint(1,2000)
@@ -218,7 +446,7 @@ cocina_m2 = random.randint(1,cocina-cocina_m1)
 cocina_m3 = cocina-(cocina_m1+cocina_m2)
 
 heladera_m1 = random.randint(1,heladera)
-heladera_m2 = random.randint(1,heladera_m1)
+heladera_m2 = random.randint(1,heladera-heladera_m1)
 heladera_m3 = heladera-(heladera_m1+heladera_m2)
 
 aire_m1 = random.randint(1,aire)
@@ -265,13 +493,40 @@ while bandera:
     elif boton == 2:
         llamadoFacturacionTipoProducto=facturacionTipoProducto(cocina_m1,cocina_m2,cocina_m3,heladera_m1,heladera_m2,heladera_m3,aire_m1,aire_m2,aire_m3,lavarropas_m1,lavarropas_m2,lavarropas_m3,microondas_m1,microondas_m2,microondas_m3,precio_cocina,precio_heladera,precio_aire,precio_lavarropas,precio_microondas,costo_cocina,costo_heladera,costo_aire,costo_lavarropas,costo_microondas,cocina,heladera,aire,lavarropas,microondas)
     elif boton == 3:
-        print()
+        llamadoListadoFacturacion=listadoFacturacion(cocina_m1,cocina_m2,cocina_m3,heladera_m1,heladera_m2,heladera_m3,aire_m1,aire_m2,aire_m3,lavarropas_m1,lavarropas_m2,lavarropas_m3,microondas_m1,microondas_m2,microondas_m3,precio_cocina,precio_heladera,precio_aire,precio_lavarropas,precio_microondas,costo_cocina,costo_heladera,costo_aire,costo_lavarropas,costo_microondas)
     elif boton == 4:
-        print()
+        elegirProducto = int(input("\nSeleccione un producto:\n1.Cocina\n2.Heladera\n3.Aire Acondicionado\n4.Lavarropas\n5.Microondas\n\n"))
+        while elegirProducto < 1 or elegirProducto > 5:
+            print("\nLa opcion ingresada es incorrecta.")
+            elegirProducto = int(input("\nSeleccione un producto:\n1.Cocina\n2.Heladera\n3.Aire Acondicionado\n4.Lavarropas\n5.Microondas\n\n"))
+        if elegirProducto == 1:
+            elegirModelo = int(input("\nSeleccione el modelo:\n1.Modelo 1\n2.Modelo 2\n3.Modelo 3\n\n"))
+            while elegirModelo < 1 or elegirModelo > 3:
+                print("La opción ingresada es incorrecta.")
+                elegirModelo = int(input("\nSeleccione el modelo:\n1.Modelo 1\n2.Modelo 2\n3.Modelo 3\n\n"))
+        elif elegirProducto == 2:
+            elegirModelo = int(input("\nSeleccione el modelo:\n1.Modelo 1\n2.Modelo 2\n3.Modelo 3\n\n"))
+            while elegirModelo < 1 or elegirModelo > 3:
+                print("La opción ingresada es incorrecta.")
+                elegirModelo = int(input("\nSeleccione el modelo:\n1.Modelo 1\n2.Modelo 2\n3.Modelo 3\n\n"))
+        elif elegirProducto == 3:
+            elegirModelo = int(input("\nSeleccione el modelo:\n1.Modelo 1\n2.Modelo 2\n3.Modelo 3\n\n"))
+            while elegirModelo < 1 or elegirModelo > 3:
+                print("La opción ingresada es incorrecta.")
+                elegirModelo = int(input("\nSeleccione el modelo:\n1.Modelo 1\n2.Modelo 2\n3.Modelo 3\n\n"))
+        elif elegirProducto == 4:
+            elegirModelo = int(input("\nSeleccione el modelo:\n1.Modelo 1\n2.Modelo 2\n3.Modelo 3\n\n"))
+            while elegirModelo < 1 or elegirModelo > 3:
+                print("La opción ingresada es incorrecta.")
+                elegirModelo = int(input("\nSeleccione el modelo:\n1.Modelo 1\n2.Modelo 2\n3.Modelo 3\n\n"))
+        else:
+            elegirModelo = int(input("\nSeleccione el modelo:\n1.Modelo 1\n2.Modelo 2\n3.Modelo 3\n\n"))
+            while elegirModelo < 1 or elegirModelo > 3:
+                print("La opción ingresada es incorrecta.")
+                elegirModelo = int(input("\nSeleccione el modelo:\n1.Modelo 1\n2.Modelo 2\n3.Modelo 3\n\n"))
+        elegirFacturacion = elegirModeloFacturacion(elegirProducto,elegirModelo,cocina_m1,cocina_m2,cocina_m3,heladera_m1,heladera_m2,heladera_m3,aire_m1,aire_m2,aire_m3,lavarropas_m1,lavarropas_m2,lavarropas_m3,microondas_m1,microondas_m2,microondas_m3,precio_cocina,precio_heladera,precio_aire,precio_lavarropas,precio_microondas,costo_cocina,costo_heladera,costo_aire,costo_lavarropas,costo_microondas)
     elif boton == 5:
         bandera = False
     else:
         print("\nLa opción ingresada no existe.")
         boton = int(input("Seleccione una de las opciones:\n1.Resumen de Ventas\n2.Facturación por Producto\n3.Listado Detallado de Facturación\n4.Facturación por Modelo de Producto\n5.SALIR\n"))
-
-
