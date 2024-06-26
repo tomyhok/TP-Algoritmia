@@ -82,7 +82,7 @@ def resumenVentas(cocinaM1,cocinaM2,cocinaM3,heladeraM1,heladeraM2,heladeraM3,ai
     # Facturación total del mes:
     facturacion = ventasTotales-costosTotales
 
-    print(f"\nFacturación total del mes: ${facturacion}\nTotal de unidades vendidas: {unidadesTotal}\nCostos totales: ${costosTotales}\n")
+    print(f"\nFacturación total del mes: ${facturacion}\nTotal de unidades vendidas: {unidadesTotal}\nCostos totales: ${costosTotales}\nVentas totales: ${ventasTotales}\n")
 
 
 #Funcion2 -> facturacion por producto
